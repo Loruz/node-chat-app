@@ -37,7 +37,7 @@ document.querySelector('#message-form').addEventListener('submit', function (e) 
         from: 'User',
         text: input.value
     },function () {
-        
+        input.value = ''
     })
 })
 
@@ -48,7 +48,12 @@ locationButton.addEventListener('click', function () {
        return alert('Geolocation not supported by you browser.')
     }
 
+    locationButton.disabled = true
+    locationButton.textContent = 'Sending location..'
+
     navigator.geolocation.getCurrentPosition(function (position) {
+        locationButton.removeAttribute('disabled')
+        locationButton.textContent = 'Send location'
         socket.emit('createLocationMessage', {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude
