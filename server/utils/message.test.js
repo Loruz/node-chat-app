@@ -17,7 +17,7 @@ describe('generateLocationMessage', () => {
         let from = 'Deb'
         let lat = 1
         let long = 1
-        var url = 'https://www.google.com/maps?q=1,1'
+        let url = 'https://www.google.com/maps?q=1,1'
         let message = generateLocationMessage(from, lat , long)
 
         expect(message.createdAt).toBeA('number')
