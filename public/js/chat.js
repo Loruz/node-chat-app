@@ -15,7 +15,16 @@ function scrollToButtom() {
     }
 }
 socket.on('connect', function() {
-    console.log('Connected to server');
+    var params = $.deparam(window.location.search)
+
+    socket.emit('join', params, function (error) {
+        if (error) {
+            alert(error)
+            window.location.href = '/'
+        } else {
+
+        }
+    })
 
 })
 
