@@ -68,7 +68,6 @@ document.querySelector('#message-form').addEventListener('submit', function (e) 
     var input = document.querySelector('.message-input')
     e.preventDefault()
     socket.emit('createMessage', {
-        from: 'User',
         text: input.value
     },function () {
         input.value = ''
